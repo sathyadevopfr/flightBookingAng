@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-12">
+        <h1>New Flight Form</h1>
+    </div>
+    <hr>
+</div>
+<div class="form">
+    <div class="row mid">
+    <div class="col-2">
+        <label for="">Flight Number</label>
+        <input type="text" class="form-control" name="" placeholder="Enter Flight No"
+        [(ngModel)]="flightObj.flightNumber"
+        >
+    </div>
+</div>
+<div class="row pt-3 mid">
+    <div class="col-3">
+        <label for="">Schedled Date</label>
+        <input type="date" class="form-control" placeholder="Select Travel Date"
+       [(ngModel)]="flightObj.travelDate"
+        >
+    </div>
+    <div class="col-3">
+        <label for="">Departure Time</label>
+    <input type="text" class="form-control" placeholder="Enter Departure Time"
+      [(ngModel)]="flightObj.departureTime">    
+    </div>
+    <div class="col-3">
+        <label for="">Arrivial Time</label>
+    <input type="text" class="form-control" placeholder="Enter Arrivial Time"
+      [(ngModel)]="flightObj.arrivalTime">    
+    </div>
+</div>
+<div class="row pt-3 mid">
+    <div class="col-4">
+
+        <label for="">Select Departure Airport</label>
+        <select class="form-select"
+          [(ngModel)]="flightObj.departureAirportId">
+      <option value="">Select Airport</option>
+       <option *ngFor="let dep of allAirports" [value]="dep.airportId">{{dep.airportName}} , {{dep.cityName}}</option>
+
+        </select>
+    </div>
+    <div class="col-4">
+        <label for="">Select Arrivial Airport</label>
+        <select class="form-select"
+          [(ngModel)]="flightObj.arrivalAirportId">
+ <option value="">Select Airport</option>
+ <option *ngFor="let arr of allAirports" [value]="arr.airportId">{{arr.airportName}} , {{arr.cityName}}</option>
+
+        </select>
+    </div>
+</div>
+<div class="row pt-3 mid">
+    <div class="col-3">
+
+<label for="">Total Seats</label>
+<input type="number" class="form-control" placeholder="Enter Total Seats"
+  [(ngModel)]="flightObj.totalSeats">    
+    </div>
+    <div class="col-3">
+
+  <label for="">Ticket Price</label>
+ 
+  <input type="number" class="form-control" placeholder="Enter Price"
+    [(ngModel)]="flightObj.price">
+
+    </div>
+</div>
+<div class="row pt-5">
+    <div class="col-3 text-center">
+        <button class="btn btn-secondary">
+Reset
+    </button>
+</div>
+<div class="col-3 text-center">
+        <button class="btn btn-success" (click)="onSaveFlight()">
+Create Flight
+    </button>
+</div>
+</div>
